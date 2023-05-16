@@ -40,4 +40,15 @@ class LinkedList {
     this.head = node;
     return node;
   }
+
+  at(index) {
+    if (index >= this.size) return undefined;
+
+    let curr = this.head;
+    for (let i = 0; i < index; ++i) {
+      curr = curr.next;
+    }
+
+    return curr;
+  }
 }
