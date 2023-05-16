@@ -11,4 +11,10 @@ class LinkedList {
     this.tail.next = new Node(value);
     this.tail = this.tail.next;
   }
+
+  prepend(value) {
+    const node = new Node(value);
+    node.next = this.head;
+    this.head = node;
+  }
 }
