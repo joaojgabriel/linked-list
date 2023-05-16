@@ -49,7 +49,7 @@ class LinkedList {
     return node;
   }
 
-  at(index) {
+  #nodeAt(index) {
     if (index >= this.size) return undefined;
 
     let curr = this.head;
@@ -57,7 +57,11 @@ class LinkedList {
       curr = curr.next;
     }
 
-    return curr.value;
+    return curr;
+  }
+
+  at(index) {
+    return this.#nodeAt(index).value;
   }
 
   pop() {
