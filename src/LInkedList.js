@@ -73,4 +73,15 @@ class LinkedList {
 
     return tail.value;
   }
+
+  contains(value) {
+    if (!this.size) return undefined;
+
+    const curr = this.head;
+    for (let i = 0; i < this.size; ++i) {
+      if (curr.value === value) return true;
+    }
+
+    return false;
+  }
 }
