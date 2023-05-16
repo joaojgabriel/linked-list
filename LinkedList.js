@@ -137,7 +137,7 @@ class LinkedList {
     prev.next.prev = node;
     prev.next = node;
 
-    return node.value;
+    return node;
   }
 
   removeAt(index) {
