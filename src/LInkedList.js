@@ -101,4 +101,18 @@ class LinkedList {
 
     return null;
   }
+
+  toString() {
+    if (!this.size) return undefined;
+
+    let str = '';
+
+    let curr = this.head;
+    for (let i = 0; i < this.size; ++i) {
+      str += `( ${curr.value} ) -> `;
+      curr = curr.next;
+    }
+
+    return `${str}null`;
+  }
 }
