@@ -81,11 +81,24 @@ class LinkedList {
   contains(value) {
     if (!this.size) return undefined;
 
-    const curr = this.head;
+    let curr = this.head;
     for (let i = 0; i < this.size; ++i) {
       if (curr.value === value) return true;
+      curr = curr.next;
     }
 
     return false;
+  }
+
+  find(value) {
+    if (!this.size) return undefined;
+
+    let curr = this.head;
+    for (let i = 0; i < this.size; ++i) {
+      if (curr.value === value) return i;
+      curr = curr.next;
+    }
+
+    return null;
   }
 }
