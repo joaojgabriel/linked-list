@@ -137,6 +137,31 @@ class LinkedList {
     prev.next.prev = node;
     prev.next = node;
 
-    return node;
+    return node.value;
+  }
+
+  removeAt(index) {
+    if (this.size - 1 === index) {
+      return this.pop();
+    }
+
+    if (this.size <= index || index < 0) {
+      return undefined;
+    }
+
+    this.size--;
+    if (index === 0) {
+      const { head } = this;
+      this.head = head.next;
+      this.head.prev = null;
+      return head.value;
+    }
+
+    const prev = this.#nodeAt(index - 1);
+    const node = prev.next;
+    prev.next = node.next;
+    prev.next.prev = prev;
+
+    return node.value;
   }
 }
