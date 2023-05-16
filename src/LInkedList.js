@@ -115,4 +115,28 @@ class LinkedList {
 
     return `${str}null`;
   }
+
+  insertAt(value, index) {
+    if (this.size === index) {
+      return this.append(value);
+    }
+
+    if (index === 0) {
+      return this.prepend(value);
+    }
+
+    if (this.size < index || index < 0) {
+      return undefined;
+    }
+
+    this.size++;
+    const node = new Node(value);
+    const prev = this.#nodeAt(index - 1);
+    node.prev = prev;
+    node.next = prev.next;
+    prev.next.prev = node;
+    prev.next = node;
+
+    return node;
+  }
 }
