@@ -29,6 +29,7 @@ class LinkedList {
 
     const node = new Node(value);
     this.tail.next = node;
+    node.prev = this.tail;
     this.tail = node;
     return node;
   }
@@ -43,6 +44,7 @@ class LinkedList {
 
     const node = new Node(value);
     node.next = this.head;
+    this.head.prev = node;
     this.head = node;
     return node;
   }
@@ -55,6 +57,20 @@ class LinkedList {
       curr = curr.next;
     }
 
-    return curr;
+    return curr.value;
+  }
+
+  pop() {
+    if (!this.size) return undefined;
+
+    const { tail } = this;
+
+    this.size--;
+    if (this.size) {
+      this.tail = tail.prev;
+      this.tail.next = null;
+    }
+
+    return tail.value;
   }
 }
