@@ -20,10 +20,13 @@ class LinkedList {
   }
 
   append(value) {
+    if (!value) return undefined;
+
     this.size++;
     if (this.size === 1) {
       return this.#addFirst(value);
     }
+
     const node = new Node(value);
     this.tail.next = node;
     this.tail = node;
@@ -31,10 +34,13 @@ class LinkedList {
   }
 
   prepend(value) {
+    if (!value) return undefined;
+
     this.size++;
     if (this.size === 1) {
       return this.#addFirst(value);
     }
+
     const node = new Node(value);
     node.next = this.head;
     this.head = node;
