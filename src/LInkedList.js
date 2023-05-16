@@ -61,7 +61,7 @@ class LinkedList {
   }
 
   at(index) {
-    return this.#nodeAt(index).value;
+    return this.#nodeAt(index)?.value;
   }
 
   pop() {
